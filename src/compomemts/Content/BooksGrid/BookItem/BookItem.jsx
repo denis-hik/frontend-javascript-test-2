@@ -2,17 +2,20 @@ import React from "react";
 import {Button, Card} from "react-bootstrap";
 import style from './BookItem.module.css';
 
-const BookItem = ({image = false, title = 'Не обозвана', text = ''}) => {
+const BookItem = ({key, image = "", title = '', athor = '', tag = ''}) => {
 
     return (
-        <Card className={style.body}>
-            <Card.Img variant="top"  src={image} />
+        <Card id={key} className={style.body}>
+            <Card.Img id={key + '_img'} variant="top" height={'100%'} src={image} />
             <Card.Body>
                 <Card.Title>{title}</Card.Title>
                 <Card.Text>
-                    {text}
+                    {athor}
                 </Card.Text>
-                <Button variant="primary">Читать</Button>
+                <Card.Subtitle>
+                    {tag}
+                </Card.Subtitle>
+                <Button variant="primary">Подробнее</Button>
             </Card.Body>
         </Card>
     )

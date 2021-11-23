@@ -7,7 +7,7 @@ export function reducer(state, action) {
 
     const getDataBook = () => {
         try {
-            fetch(`https://www.googleapis.com/books/v1/volumes?q=${state.find}&maxResults=30&orderBy=${state.type}&key=${configAPI.apiKey}`).then(
+            fetch(`https://www.googleapis.com/books/v1/volumes?q=${state.find}${state.filter ? '+subject:' + state.filter : ''}&startIndex=${state.startIndex}&maxResults=30&orderBy=${state.type}&key=${configAPI.apiKey}`).then(
                 res => res.json()
             ).then(
                 (result) => {
@@ -29,16 +29,51 @@ export function reducer(state, action) {
 
         //Когда функция нашла книги, то она добавляет в state книги
         case configRequest.setBookList:
-            state.data = action.data;
+
+            if (state.concat) {
+                //объединение два массива в один
+                state.data.items = [...state.data.items, ...action.data.items]
+                state.concat = false
+            } else {
+                state.data = action.data;
+                state.startIndex = 0
+            }
             return state
 
         //Вызывается, когда нажали поиск
         case configRequest.setSearch:
             //меняем запрос на поисковой запрос
             state.find = action.data;
-            //Запрашиваем заного данные
+            //Запрашиваем заново данные
             getDataBook();
             return state
+
+        //Вызывается, когда меняют сортировку
+        case configRequest.setSort:
+            //меняем запрос на сортировку
+            state.type = action.data;
+            //Запрашиваем заново данные
+            getDataBook();
+            return state;
+
+        //Вызывается при запросе на прогрузку езе +30 книг
+        case configRequest.moreBook:
+            state.concat = true;
+            //Теперь книги будут загружаться с 30 позиции
+            state.startIndex = state.startIndex + 30;
+            getDataBook();
+            return state;
+
+        case configRequest.setFilter:
+            //меняем запрос на тип
+            if (action.data !== 'all') {
+                state.filter = action.data;
+            }else {
+                state.filter = false;
+            }
+            //Запрашиваем заново данные
+            getDataBook();
+            return state;
 
         default:
             return state;

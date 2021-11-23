@@ -5,23 +5,23 @@ import {configUi} from "../../../configs/config-ui";
 const TypesBlock = (props) => {
 
     return (
-        <Container>
+        <Container style={{color: 'white'}}>
             <Row>
                 <Col>Categories:
-                    <Form.Select size="sm">
+                    <Form.Select onChange={(e) => props.onFilter(e.target.value)} size="sm">
                         {
                             configUi.categoriesList.map((data) => (
-                                <option>{data}</option>
+                                <option key={data + '_key'} value={data}>{data}</option>
                             ))
                         }
                     </Form.Select>
 
                 </Col>
                 <Col>Sorting by:
-                    <Form.Select size="sm">
+                    <Form.Select onChange={(e) => props.onSort(e.target.value)} size="sm">
                         {
                             configUi.sortList.map((data) => (
-                                <option>{data}</option>
+                                <option key={data + '_key'}>{data}</option>
                             ))
                         }
                     </Form.Select>

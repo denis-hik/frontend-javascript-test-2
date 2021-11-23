@@ -19,3 +19,23 @@ export  const setSearch = (text) => {
         data: text,
     }
 }
+
+export const setSort = (text) => {
+    return {
+        type: configRequest.setSort,
+        data: text,
+    }
+}
+
+export const moreBook = () => {
+    return {
+        type: configRequest.moreBook,
+    }
+}
+
+export const setFilter = (text) => {
+    return {
+        type: configRequest.setFilter,
+        data: text,
+    }
+}

@@ -4,7 +4,7 @@ import style from './Header.module.css';
 import TitleBlock from "./TitleBlock/TitleBlock";
 import TypesBlock from "./TypesBlock/TypesBlock";
 import store from "../../store/store";
-import {setSearch} from "../../store/actions";
+import {setFilter, setSearch, setSort} from "../../store/actions";
 
 const Header = (props) => {
 
@@ -12,11 +12,19 @@ const Header = (props) => {
         store.dispatch(setSearch(text));
     }
 
+    const onSort = (text) => {
+        store.dispatch(setSort(text));
+    }
+
+    const onFilter = (text) => {
+        store.dispatch(setFilter(text))
+    }
+
     return (
         <div className={style.body}>
             <TitleBlock />
             <SearchbarBlock onClick={onSearch} />
-            <TypesBlock />
+            <TypesBlock onFilter={onFilter} onSort={onSort}/>
         </div>
     )
 };
