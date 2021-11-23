@@ -8,7 +8,7 @@ import {moreBook} from "../../store/actions";
 const Content = (props) => {
 
     const dataBooks = store.getState().data;
-    const posItems = store.getState().startIndex;
+    const posItems = store.getState().startIndex
     const showMoreButton = (dataBooks ? dataBooks.totalItems > (posItems + 30) : false);
     console.log(dataBooks.items)
 

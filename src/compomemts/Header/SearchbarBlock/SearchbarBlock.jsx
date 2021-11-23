@@ -5,10 +5,18 @@ const SearchbarBlock = (props) => {
 
     const [input, setInput] = useState('');
 
+    const lisanerEnter = (e) => {
+        var ev = e || window.event;
+        var key = ev.keyCode;
+        if (key === 13)
+        {
+            props.onClick(input);
+        }
+    }
     return (
-        <div style={{display: 'flex'}}>
-            <Form.Control value={input} onChange={(e) => setInput(e.target.value)} size="lg" type="text" placeholder="Book name.."/>
-            <Image src="https://img.icons8.com/ios-glyphs/30/000000/search--v1.png" rounded onClick={() => props.onClick(input)} />
+        <div style={{display: 'flex', padding: '10px'}}>
+            <Form.Control onKeyDown={(e) => lisanerEnter(e)} value={input} onChange={(e) => setInput(e.target.value)} size="lg" type="text" placeholder="Book name.."/>
+            <Image height={'50px'} src="https://icon-library.com/images/white-search-icon-transparent-background/white-search-icon-transparent-background-1.jpg" rounded onClick={() => props.onClick(input)} />
         </div>
     )
 };

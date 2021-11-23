@@ -43,7 +43,11 @@ export function reducer(state, action) {
         //Вызывается, когда нажали поиск
         case configRequest.setSearch:
             //меняем запрос на поисковой запрос
-            state.find = action.data;
+            if (action.data == '') {
+                state.find = 'all'
+            }else {
+                state.find = action.data;
+            }
             //Запрашиваем заново данные
             getDataBook();
             return state
@@ -73,6 +77,11 @@ export function reducer(state, action) {
             }
             //Запрашиваем заново данные
             getDataBook();
+            return state;
+
+        //ОТкрывает панель с книгой
+        case configRequest.setShowBook:
+            state.showBook = state.data.items[action.data];
             return state;
 
         default:

@@ -39,3 +39,10 @@ export const setFilter = (text) => {
         data: text,
     }
 }
+
+export const setShowBook = (index) => {
+    return {
+        type: configRequest.setShowBook,
+        data: index,
+    }
+}

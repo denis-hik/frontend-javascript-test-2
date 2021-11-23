@@ -9,5 +9,7 @@ export const initialState = {
     //Тип
     type: 'relevance',
     //Для прогрузки больше книг
-    concat: false
+    concat: false,
+    //сюда добавляется индекс книги из массива для показа подробного
+    showBook: false,
 }

@@ -2,7 +2,7 @@ import React from "react";
 import {Button, Card} from "react-bootstrap";
 import style from './BookItem.module.css';
 
-const BookItem = ({key, image = "", title = '', athor = '', tag = ''}) => {
+const BookItem = ({key, image = "", title = '', athor = '', tag = '', onClick}) => {
 
     return (
         <Card id={key} className={style.body}>
@@ -15,7 +15,7 @@ const BookItem = ({key, image = "", title = '', athor = '', tag = ''}) => {
                 <Card.Subtitle>
                     {tag}
                 </Card.Subtitle>
-                <Button variant="primary">Подробнее</Button>
+                <Button onClick={() => onClick(key)} variant="primary">Подробнее</Button>
             </Card.Body>
         </Card>
     )

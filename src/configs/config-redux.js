@@ -5,4 +5,5 @@ export const configRequest = {
     setSort: 'SET-SORT',
     moreBook: 'MORE-BOOK',
     setFilter: 'SET-FILTER',
+    setShowBook: 'SET-SHOW-BOOK',
 }
