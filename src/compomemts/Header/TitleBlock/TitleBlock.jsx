@@ -3,7 +3,7 @@ import React from 'react';
 const TitleBlock = (props) => {
 
     return (
-        <h1>Book search</h1>
+        <h1 style={{color: 'white'}}>Book search</h1>
     )
 };
 
