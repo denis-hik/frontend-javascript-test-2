@@ -23,4 +23,4 @@
 `react-bootstrap`,`react-redux`,`docker`
 
 Не выполнено:
-~~Typescript~~
+Typescript
