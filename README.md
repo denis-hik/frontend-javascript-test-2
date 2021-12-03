@@ -22,5 +22,11 @@
 Использующие модули:
 `react-bootstrap`,`react-redux`,`docker`
 
+Запуск с докером:
+`docker compose up --build`
+Запуск npm:
+`mpn i`
+`npm start`
+
 Не выполнено:
 Typescript
