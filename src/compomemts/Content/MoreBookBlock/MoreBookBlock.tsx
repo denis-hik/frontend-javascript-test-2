@@ -3,7 +3,11 @@ import {Button, Col, Container, Row} from "react-bootstrap";
 
 import style from './MoreBookBlock.module.css';
 
-const MoreBookBlock = (props) => {
+interface propsI {
+    onClick: any,
+}
+
+const MoreBookBlock = (props: propsI) => {
 
     return (
         <Container>

@@ -5,9 +5,13 @@ import style from './BooksGrid.module.css';
 import store from "../../../store/store";
 import {setShowBook} from "../../../store/actions";
 
-const BooksGrid = (props) => {
+interface propsI {
+    list: Array<any> | boolean
+}
 
-    const itemOnClick = (index) => {
+const BooksGrid = (props: propsI) => {
+
+    const itemOnClick = (index: number) => {
         store.dispatch(setShowBook(index));
     }
 

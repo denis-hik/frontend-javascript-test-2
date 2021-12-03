@@ -6,21 +6,19 @@ export const getBookList = () => {
     }
 }
 
-export const setBookList = (data) => {
+export const setBookList = (data: string) => {
     return {
         type: configRequest.setBookList,
         data: data,
     }
 }
 
-export  const setSearch = (text) => {
-    return {
-        type: configRequest.setSearch,
-        data: text,
-    }
-}
+export const setSearch = (text: string) => ({
+    type: configRequest.setSearch,
+    data: text,
+})
 
-export const setSort = (text) => {
+export const setSort = (text: string) => {
     return {
         type: configRequest.setSort,
         data: text,
@@ -33,14 +31,14 @@ export const moreBook = () => {
     }
 }
 
-export const setFilter = (text) => {
+export const setFilter = (text: string) => {
     return {
         type: configRequest.setFilter,
         data: text,
     }
 }
 
-export const setShowBook = (index) => {
+export const setShowBook = (index: boolean | number) => {
     return {
         type: configRequest.setShowBook,
         data: index,

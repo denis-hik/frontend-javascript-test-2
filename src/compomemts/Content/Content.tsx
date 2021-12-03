@@ -1,15 +1,14 @@
-import React from "react";
 import store from "../../store/store";
 import LoadingGrid from "./LoadingGrid/LoadingGrid";
 import BooksGrid from "./BooksGrid/BooksGrid";
 import MoreBookBlock from "./MoreBookBlock/MoreBookBlock";
 import {moreBook} from "../../store/actions";
 
-const Content = (props) => {
+const Content = () => {
 
-    const dataBooks = store.getState().data;
-    const posItems = store.getState().startIndex
-    const showMoreButton = (dataBooks ? dataBooks.totalItems > (posItems + 30) : false);
+    const dataBooks: dataBooksI = store.getState().data;
+    const posItems: string = store.getState().startIndex
+    const showMoreButton: boolean = (dataBooks ? dataBooks.totalItems > (posItems + 30) : false);
     console.log(dataBooks.items)
 
     const onMoreBlock = () => {
@@ -18,12 +17,11 @@ const Content = (props) => {
 
     return (
         <div>
-
-            {dataBooks ? <>
+            {dataBooks ? <div>
                 <h4>{dataBooks.totalItems ? `Founded:  ${dataBooks.totalItems}` : `Error ${dataBooks.error.message}`}</h4>
                 <BooksGrid list={dataBooks.items ? dataBooks.items : false}/>
                     {showMoreButton ? <MoreBookBlock onClick={onMoreBlock} /> : null}
-            </> :
+            </div> :
                 <LoadingGrid/>}
         </div>
     )

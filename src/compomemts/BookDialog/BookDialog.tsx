@@ -1,13 +1,13 @@
 import React from "react";
 import store from "../../store/store";
-
-import style from './BookDialog.module.css'
 import {setShowBook} from "../../store/actions";
 import {Image} from "react-bootstrap";
 
-const BookDialog = (props) => {
+import style from './BookDialog.module.css'
 
-    const data = store.getState().showBook
+const BookDialog = () => {
+
+    const data: any = store.getState().showBook
 
     const exitDialog = () => {
         store.dispatch(setShowBook(false))

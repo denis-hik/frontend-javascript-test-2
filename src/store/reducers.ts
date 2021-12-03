@@ -3,7 +3,7 @@ import {setBookList} from "./actions";
 import store from "./store";
 import {configAPI} from "../configs/config-api";
 
-export function reducer(state, action) {
+export function reducer(state: any, action: any) {
 
     const getDataBook = () => {
         try {
@@ -15,7 +15,7 @@ export function reducer(state, action) {
                 }
             )
 
-        } catch (e) {
+        } catch (e: any) {
             alert(e.toString())
         }
     }
