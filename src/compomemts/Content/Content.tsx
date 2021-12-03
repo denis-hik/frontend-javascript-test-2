@@ -4,6 +4,12 @@ import BooksGrid from "./BooksGrid/BooksGrid";
 import MoreBookBlock from "./MoreBookBlock/MoreBookBlock";
 import {moreBook} from "../../store/actions";
 
+interface dataBooksI {
+    totalItems: number | bigint,
+    items?: object,
+    error?: object,
+}
+
 const Content = () => {
 
     const dataBooks: dataBooksI = store.getState().data;
